@@ -22,7 +22,8 @@
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-inlinesvg": "^0.8.4"
+    "react-inlinesvg": "^0.8.4",
+    "react-tabs": "^3.0.0"
   },
   "scripts": {
     "build": "webpack",
