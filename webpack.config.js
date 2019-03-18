@@ -42,7 +42,7 @@ module.exports = {
                 use: ['babel-loader']
             },
             {
-                test: /\.(ico|json|svg)$/,
+                test: /\.(ico|svg)$/,
                 loader: 'file-loader'
             }
         ]
