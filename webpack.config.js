@@ -1,0 +1,53 @@
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+let plugins = [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+        title: 'D&D 4E Character Viewer',
+        template: './src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+        filename: 'style.[name].css'
+    }),
+    new webpack.HotModuleReplacementPlugin()
+];
+
+module.exports = {
+    entry: './src/index.js',
+    devServer: {
+        contentBase: './dist',
+        hot: true
+    },
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    plugins,
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: MiniCssExtractPlugin.loader },
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
+            },
+            {
+                test: /\.(ico|json|svg)$/,
+                loader: 'file-loader'
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['*', '.js', 'jsx']
+    }
+};
