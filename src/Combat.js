@@ -15,7 +15,7 @@ class Combat extends Component {
             will: 15,
             initiativeBonus: 5,
             speed: 6,
-            tempHitPoints: 0
+            tempHitPoints: 33
         };
     }
 
@@ -31,13 +31,29 @@ class Combat extends Component {
         });
     }
 
+    incrementTempHP() {
+        this.setState((prevState) => {
+            return { tempHitPoints: prevState.tempHitPoints + 1 }
+        });
+    }
+
+    decrementTempHP() {
+        this.setState((prevState) => {
+            return { tempHitPoints: Math.max(0, prevState.tempHitPoints - 1) }
+        });
+    }
+
     render() {
         const sqSize = 200;
-        const strokeWidth = 10;
+        const strokeWidth = 30;
+        const tempStroke = strokeWidth / 2;
         const radius = (sqSize - strokeWidth) / 2;
+        const tempRadius = (sqSize - tempStroke) / 2;
         const viewBox = `0 0 ${sqSize} ${sqSize}`;
         const dashArray = radius * Math.PI * 2;
+        const tempArray = tempRadius * Math.PI * 2;
         const dashOffset = dashArray - dashArray * (this.state.hitPoints / this.state.maxHitPoints);
+        const tempOffset = (this.state.tempHitPoints >= this.state.maxHitPoints) ? 0 : tempArray - tempArray * (this.state.tempHitPoints / this.state.maxHitPoints);
         let isBloodied = this.state.hitPoints <= this.state.maxHitPoints / 2;
 
         return (
@@ -64,10 +80,30 @@ class Combat extends Component {
                                 strokeDasharray: dashArray,
                                 strokeDashoffset: dashOffset
                             }}/>
+                        <circle
+                            className="health-temp"
+                            cx={sqSize / 2}
+                            cy={sqSize / 2}
+                            r={tempRadius}
+                            strokeWidth={`${tempStroke}px`}
+                            style={{
+                                strokeDasharray: tempArray,
+                                strokeDashoffset: tempOffset
+                            }}/>
+                        <text
+                            className="circle-text"
+                            x="50%"
+                            y="50%"
+                            dy=".3em"
+                            textAnchor="middle">
+                            {this.state.hitPoints}
+                        </text>
                     </svg>
                     <p>Health Points</p>
                     <button onClick={() => this.incrementHP()}>HP +1</button>
                     <button onClick={() => this.decrementHP()}>HP -1</button>
+                    <button onClick={() => this.incrementTempHP()}>THP +1</button>
+                    <button onClick={() => this.decrementTempHP()}>THP -1</button>
                     <p>Armor Class</p>
                     <p>Fortitude</p>
                     <p>Reflex</p>
