@@ -1,46 +1,16 @@
 import React, { Component } from 'react';
 
-import './Combat.css'
-
-class Combat extends Component {
-    constructor() {
+class HealthComponent extends Component {
+    constructor(props) {
         super();
 
         this.state = {
-            hitPoints: 33,
+            hitPoints: (props && props.hitPoints) ? props.hitPoints : 31,
             maxHitPoints: 41,
-            armorClass: 20,
-            fortitude: 19,
-            reflex: 13,
-            will: 15,
-            initiativeBonus: 5,
-            speed: 6,
-            tempHitPoints: 33
+            healingSurges: 9,
+            maxHealingSurges: 10,
+            surgeValue: 10
         };
-    }
-
-    incrementHP() {
-        this.setState((prevState) => {
-            return { hitPoints: Math.min(prevState.hitPoints + 1, prevState.maxHitPoints) }
-        });
-    }
-
-    decrementHP() { 
-        this.setState((prevState) => {
-            return { hitPoints: Math.max(prevState.hitPoints - 1, 0) }
-        });
-    }
-
-    incrementTempHP() {
-        this.setState((prevState) => {
-            return { tempHitPoints: prevState.tempHitPoints + 1 }
-        });
-    }
-
-    decrementTempHP() {
-        this.setState((prevState) => {
-            return { tempHitPoints: Math.max(0, prevState.tempHitPoints - 1) }
-        });
     }
 
     render() {
@@ -99,27 +69,13 @@ class Combat extends Component {
                             {this.state.hitPoints}
                         </text>
                     </svg>
-                    <p>Health Points</p>
-                    <button onClick={() => this.incrementHP()}>HP +1</button>
-                    <button onClick={() => this.decrementHP()}>HP -1</button>
-                    <button onClick={() => this.incrementTempHP()}>THP +1</button>
-                    <button onClick={() => this.decrementTempHP()}>THP -1</button>
-                    <p>Armor Class</p>
-                    <p>Fortitude</p>
-                    <p>Reflex</p>
-                    <p>Will</p>
-                    <p>Initiative</p>
-                    <p>Speed</p>
-                </div>
-                <div>
-                    <h3>Conditions</h3>
-                </div>
-                <div>
-                    <h3>Powers</h3>
+                    <button onClick={() => this.incrementHP()}>Heal 7 Hit Points</button>
+                    <button onClick={() => this.decrementHP()}>Take 7 Damage</button>
+                    <button onClick={() => this.incrementTempHP()}>Set Temp HP: 5</button>
                 </div>
             </div>
         );
     }
 }
 
-export default Combat;
+export default HealthComponent;
