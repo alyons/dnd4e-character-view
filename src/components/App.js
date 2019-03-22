@@ -1,39 +1,30 @@
-import React, { Component } from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import React from 'react';
+import { connect } from 'react-redux';
 
-import Character from './Character';
-import CombatPanel from '../containers/CombatPanel';
-import Equipment from './Equipment';
+import { AppActions } from '../actions';
 import Header from './Header';
-import Inventory from './Inventory';
+import Main from './Main';
+import LogIn from './LogIn';
 
-import character from '../images/017-paper.svg';
-import combat from '../images/007-swords.svg';
-import equipment from '../images/armor.svg';
-import inventory from '../images/003-treasure.svg';
 import './App.css';
-import 'react-tabs/style/react-tabs.css'
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                {/* <Header /> */}
-                <Tabs>
-                    <TabList>
-                        <Tab><img src={character} className="App-tab-icon" alt="Character" /></Tab>
-                        <Tab><img src={combat} className="App-tab-icon" alt="Combat" /></Tab>
-                        <Tab><img src={equipment} className="App-tab-icon" alt="Equipment" /></Tab>
-                        <Tab><img src={inventory} className="App-tab-icon" alt="Inventory" /></Tab>
-                    </TabList>
-                    <TabPanel><Character /></TabPanel>
-                    <TabPanel><CombatPanel /></TabPanel>
-                    <TabPanel><Equipment /></TabPanel>
-                    <TabPanel><Inventory /></TabPanel>
-                </Tabs>
-            </div>
-        );
-    }
-}
+const LOADING_STATUS = AppActions.LOADING_STATUS;
 
-export default App;
+const mapStateToProps = state => ({
+    loadingStatus: state.app.loadingStatus
+});
+
+const App = ({loadingStatus, onResponse}) => {
+    let mainComponent = loadingStatus === LOADING_STATUS.LOADED ?
+                        <Main /> :
+                        <LogIn />;
+
+    return (
+        <div className="App">
+            <Header />
+            {mainComponent}
+        </div>
+    )
+};
+
+export default connect(mapStateToProps)(App);
