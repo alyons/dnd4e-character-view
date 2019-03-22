@@ -19,7 +19,7 @@ class App extends Component {
         return (
             <div className="App">
                 {/* <Header /> */}
-                {/* <Tabs>
+                <Tabs>
                     <TabList>
                         <Tab><img src={character} className="App-tab-icon" alt="Character" /></Tab>
                         <Tab><img src={combat} className="App-tab-icon" alt="Combat" /></Tab>
@@ -27,11 +27,10 @@ class App extends Component {
                         <Tab><img src={inventory} className="App-tab-icon" alt="Inventory" /></Tab>
                     </TabList>
                     <TabPanel><Character /></TabPanel>
-                    <TabPanel><Combat /></TabPanel>
+                    <TabPanel><CombatPanel /></TabPanel>
                     <TabPanel><Equipment /></TabPanel>
                     <TabPanel><Inventory /></TabPanel>
-                </Tabs> */}
-                <CombatPanel />
+                </Tabs>
             </div>
         );
     }

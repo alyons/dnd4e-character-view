@@ -1,9 +1,10 @@
 import React from 'react';
-
+import Health from './HealthComponent';
 import './Combat.css'
 
 const Combat = ({ hitPoints, maxHitPoints, tempHitPoints, takeDamage, heal, setTempHP }) => (
     <div>
+        <Health />
         <p>{`Temp HP: ${tempHitPoints}`}</p>
         <p>{`Health: ${hitPoints}/${maxHitPoints}`}</p>
         <button onClick={() => takeDamage(5)}>Take Damage: 5</button>

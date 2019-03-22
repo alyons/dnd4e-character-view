@@ -1,5 +1,5 @@
 .circle-background,
-.circle-progress,
+.health-current,
 .health-temp {
     fill: none;
 }
@@ -8,22 +8,24 @@
     stroke: #ddd;
 }
 
-.circle-progress {
+.health-current {
     stroke: green;
-    /* stroke-linecap: round;
-    stroke-linejoin: round; */
 }
 
 .health-temp {
     stroke: blue;
 }
 
-.circle-text {
+.health-text {
     font-size: 3em;
     font-weight: bold;
     fill: green;
 }
 
-.bloodied { 
+.health-bloodied { 
     stroke: red;
+}
+
+.bloodied {
+    fill: red;
 }
