@@ -1,16 +1,9 @@
-export const LOG_IN = 'LOG_IN';
-export const LOG_OUT = 'LOG_OUT';
-
-export function logIn(credentials) {
-    return { type: LOG_IN, credentials };
-}
-
-export function logOut() {
-    return { type: LOG_OUT };
-}
-
+import * as AppActions from './appActions';
 import * as HealthActions from './healthActions';
+import * as UserActions from './userActions';
 
 export {
-    HealthActions
+    AppActions,
+    HealthActions,
+    UserActions
 };

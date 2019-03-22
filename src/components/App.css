@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -23,19 +22,11 @@
 
 .App-tab-icon {
   height: 10vmin;
+  min-height: 44px;
 }
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 body {
@@ -46,9 +37,4 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }

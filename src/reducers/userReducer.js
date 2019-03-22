@@ -1,13 +1,12 @@
-import { LOG_IN } from '../actions';
+import { UserActions } from '../actions';
 
-export default function userChange(state = { }, action) {
+const user = (state = { }, action) => {
     switch(action.type) {
-        case LOG_IN:
-            let { credentials } = action;
-            return Object.assign({}, state, {
-                username: credentials.username || 'PyroticBlaziken'
-            });
+        case UserActions.LOG_IN:
+            return Object.assign({}, state, action.user);
         default:
             return state;
     }
-}
+};
+
+export default user;
