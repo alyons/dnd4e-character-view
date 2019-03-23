@@ -1,9 +1,9 @@
 import * as AppActions from './appActions';
-import * as HealthActions from './healthActions';
 import * as UserActions from './userActions';
+import * as VitalityActions from './vitalityActions';
 
 export {
     AppActions,
-    HealthActions,
-    UserActions
+    UserActions,
+    VitalityActions
 };
