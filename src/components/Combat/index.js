@@ -5,9 +5,9 @@ import Health from './HealthComponent';
 import './Combat.css'
 
 const mapStateToProps = state => ({
-    hitPoints: state.health.hitPoints,
-    maxHitPoints: state.health.maxHitPoints,
-    tempHitPoints: state.health.tempHitPoints
+    hitPoints: state.vitality.hitPoints,
+    maxHitPoints: state.vitality.maxHitPoints,
+    tempHitPoints: state.vitality.tempHitPoints
 });
 
 const mapDispatchToProps = dispatch => ({

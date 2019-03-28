@@ -17,12 +17,26 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
+const isLocalhost = () => {
+    return (location.host === 'localhost' || location.host === '127.0.0.1' || location.host === '');
+};
+
 const LogIn = ({ onResponse }) => (
-    <GoogleLogin
-        clientId='123309033865-b85i6q4rapt9tf17qp38chvnbbcn35js.apps.googleusercontent.com'
-        onSuccess={onResponse}
-        onFailure={onResponse}
-    />
+    <div className="log-in">
+    {
+        isLocalhost ?
+        <button
+            onClick={() => onResponse({
+                profileObj: { userName: 'Some User' }
+            })}>Fake Log In</button>
+        :
+        <GoogleLogin
+            clientId='123309033865-b85i6q4rapt9tf17qp38chvnbbcn35js.apps.googleusercontent.com'
+            onSuccess={onResponse}
+            onFailure={onResponse}
+        />
+    }
+    </div>
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
