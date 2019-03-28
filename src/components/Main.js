@@ -6,7 +6,6 @@ import Combat from './Combat';
 import Equipment from './Equipment';
 import Inventory from './Inventory';
 
-
 import character from '../images/017-paper.svg';
 import combat from '../images/007-swords.svg';
 import equipment from '../images/armor.svg';

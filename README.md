@@ -9,6 +9,7 @@ A lot of old websites and tools are bad, making a good one.
 - [Dynamic Theming](https://medium.com/@krandles/adding-dynamic-themes-to-a-react-app-using-css-variables-57957e39f0bf) - Them themes bro
 - [Cypress IO](https://www.cypress.io/) - Browser Testing
 - [Browser Test in Pipeline](https://blog.kylegalbraith.com/2018/08/14/how-to-run-browser-tests-via-cypress-in-your-cicd-pipeline-with-aws-codebuild/)
+- [Good Practices for Testing React Apps](https://medium.com/@TuckerConnelly/good-practices-for-testing-react-apps-3a64154fa3b1)
 
 ## Credits
 
