@@ -34,3 +34,12 @@ jobs:
           from: ${BUILD_SOURCE}
           to: 's3://${S3_BUCKET}'
           overwrite: true
+
+workflows:
+  version: 2
+  main-pipeline:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
