@@ -1,5 +1,7 @@
 # D&D 4E Character Viewer
 
+[![CircleCI](https://circleci.com/gh/alyons/dnd4e-character-view.svg?style=svg)](https://circleci.com/gh/alyons/dnd4e-character-view)
+
 A lot of old websites and tools are bad, making a good one.
 
 ## Notes
