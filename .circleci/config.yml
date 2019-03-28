@@ -38,7 +38,7 @@ jobs:
       - image: circleci/python:2.7
     steps:
       - attach_workspace
-          at: ~
+          at: ~/
       - run: ls -la
       - aws-s3/sync:
           from: ${BUILD_SOURCE}
