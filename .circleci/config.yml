@@ -30,6 +30,7 @@ jobs:
       - image: circleci/python:2.7
     working_directory: ~/repo
     steps:
+      - run: ls -la
       - aws-s3/sync:
           from: ${BUILD_SOURCE}
           to: 's3://${S3_BUCKET}'
