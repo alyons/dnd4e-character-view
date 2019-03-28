@@ -4,14 +4,17 @@
 #
 version: 2.1
 
+defaults: &defaults
+  working_directory: ~/repo
+
 orbs:
   aws-s3: circleci/aws-s3@1.0.4
 
 jobs:
   build:
+    <<: *defaults
     docker:
       - image: circleci/node:lts
-    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -24,12 +27,18 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
+      - run: npm build
+      - persist_to_workspace:
+        paths:
+          - dist
 
   deploy:
+    <<: *defaults
     docker:
       - image: circleci/python:2.7
-    working_directory: ~/repo
     steps:
+      - attach_workspace
+          at: ~
       - run: ls -la
       - aws-s3/sync:
           from: ${BUILD_SOURCE}
