@@ -29,8 +29,9 @@ jobs:
       - run: npm test
       - run: npm build
       - persist_to_workspace:
-        paths:
-          - dist
+          root: ~/
+          paths:
+            - repo
 
   deploy:
     <<: *defaults
