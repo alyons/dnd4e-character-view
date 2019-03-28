@@ -1,39 +1,37 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import App from '../App';
+import Header from '../Header';
 import rootReducer from '../../reducers';
-import { AppActions } from '../../actions';
 
-describe('App Component', () => {
+describe('Header Component', () => {
     let store;
 
     beforeEach(() => {
         store = createStore(rootReducer);
     });
 
-    it('renders without crashing', () => {
+    it('should render', () => {
         const div = document.createElement('div');
         render(
             <Provider store={store}>
-                <App />
+                <Header />
             </Provider>, div);
         unmountComponentAtNode(div);
     });
 
-    it('renders the main page if state dictates so', () => {
-        store = Object.assign({}, store, { 
-            app: {
-                loadingStatus: AppActions.LOADING_STATUS.LOADED
+    it('should render a different soure with a value', () => {
+        store = Object.assign({}, store, {
+            user: {
+                imageUrl: 'a different url'
             }
         });
         const div = document.createElement('div');
         render(
             <Provider store={store}>
-                <App />
+                <Header />
             </Provider>, div);
         unmountComponentAtNode(div);
     });
