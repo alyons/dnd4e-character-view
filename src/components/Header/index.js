@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import person from '../images/person.svg';
+import person from '../../images/person.svg';
+
+import './Header.css';
 
 const mapStateToProps = state => ({
     user: state.user
@@ -16,7 +18,7 @@ const Header = ({ user }) => {
 
     return (
         <div className="header">
-            <img src={imgSource} />
+            <img className="user-icon" src={imgSource} />
         </div>
     )
 };

@@ -1,6 +1,8 @@
 import { UserActions } from '../actions';
 
-const user = (state = { }, action) => {
+const initialState = { };
+
+const user = (state = initialState, action) => {
     switch(action.type) {
         case UserActions.LOG_IN:
             return Object.assign({}, state, action.user);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+// import { shallow } from 'enzyme';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';

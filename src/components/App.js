@@ -4,25 +4,36 @@ import { connect } from 'react-redux';
 import { AppActions } from '../actions';
 import Header from './Header';
 import Main from './Main';
-import LogIn from './LogIn';
-
+import SignIn from './SignIn';
+import CharacterList from './CharacterList';
 import './App.css';
 
 const LOADING_STATUS = AppActions.LOADING_STATUS;
+const APP_VIEW = AppActions.APP_VIEW;
 
 const mapStateToProps = state => ({
-    loadingStatus: state.app.loadingStatus
+    appView: state.app.appView
 });
 
-const App = ({loadingStatus, onResponse}) => {
-    let mainComponent = loadingStatus === LOADING_STATUS.LOADED ?
-                        <Main /> :
-                        <LogIn />;
+const App = ({ appView, loadingStatus }) => {
+    let contentWidget = <div>This is where content should go.</div>;
+
+    switch(appView) {
+        case APP_VIEW.CHAR_SHEET:
+            contentWidget = <Main />;
+            break;
+        case APP_VIEW.CHAR_LIST:
+            contentWidget = <CharacterList />;
+            break;
+        default:
+            contentWidget = <SignIn />;
+            break;
+    }
 
     return (
         <div className="App">
             <Header />
-            {mainComponent}
+            {contentWidget}
         </div>
     )
 };
