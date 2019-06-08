@@ -1,4 +1,4 @@
-import { VitalityActions } from '../index';
+import { VitalityActions } from '../../src/actions/index';
 
 describe('vitality actions', () => {
     it('should create an action to heal', () => {

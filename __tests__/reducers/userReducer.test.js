@@ -1,8 +1,8 @@
-import user from '../userReducer';
+import user from '../../src/reducers/userReducer';
 import {
     LOG_IN,
     LOG_OUT
-} from '../../actions/userActions';
+} from '../../src/actions/userActions';
 
 describe('user reducer', () => {
     let state = { };

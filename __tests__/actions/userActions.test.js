@@ -3,7 +3,7 @@ import {
     LOG_OUT,
     logIn,
     logOut
-} from '../userActions';
+} from '../../src/actions/userActions';
 
 describe('user actions', () => {
     it('should create a login action', () => {

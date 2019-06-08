@@ -1,10 +1,10 @@
-import vitality from '../vitalityReducer';
+import vitality from '../../src/reducers/vitalityReducer';
 import { 
     HEAL_HIT_POINTS,
     SET_TEMP_HIT_POINTS,
     SPEND_HEALING_SURGE,
     TAKE_DAMAGE
-} from '../../actions/vitalityActions';
+} from '../../src/actions/vitalityActions';
 
 describe('vitality reducer', () => {
     let state = { };

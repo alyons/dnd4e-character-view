@@ -3,8 +3,8 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-import SignIn, { } from '../SignIn';
-import rootReducer from '../../reducers';
+import SignIn, { } from '../../src/components/SignIn';
+import rootReducer from '../../src/reducers';
 
 const store = createStore(rootReducer);
 

@@ -1,8 +1,8 @@
-import app from '../appReducer';
+import app from '../../src/reducers/appReducer';
 import {
     SET_LOADING_STATUS,
     LOADING_STATUS
-} from '../../actions/appActions';
+} from '../../src/actions/appActions';
 
 describe('app reducer', () => {
     let state = { };
