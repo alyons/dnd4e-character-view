@@ -1,16 +1,35 @@
 import React from 'react';
-import { Accordion, Button, Card } from 'react-bootstrap';
+import { Accordion, Card } from 'react-bootstrap';
 
 const PowerItem = ({ power, eventKey }) => {
+    let bg = "light";
+    let text = "dark";
+
+    switch(power.powerUsage) {
+        case "At-Will":
+            bg = "success";
+            text = "white";
+            break;
+        case "Daily":
+            bg = "secondary";
+            text = "white";
+            break;
+        case "Encounter":
+        case "Encounter (Special)":
+            bg = "danger";
+            text = "white";
+            break;
+    }
+
     return (
-        <Card>
-            <Card.Header>
-                <Accordion.Toggle as={Button} variant="link" eventKey={eventKey}>
-                    {power.name}
-                </Accordion.Toggle>
-            </Card.Header>
+        <Card bg={bg} text={text}>
+            <Accordion.Toggle as={Card.Header} eventKey={eventKey}>
+                {power.name}
+            </Accordion.Toggle>
             <Accordion.Collapse eventKey={eventKey}>
-                <Card.Body>{power.flavor}</Card.Body>
+                <Card.Body>
+                    {power.flavor}
+                </Card.Body>
             </Accordion.Collapse>
         </Card>
     );

@@ -1,4 +1,4 @@
-import { CharacterActions } from '../actions';
+import { CharacterActions } from '../../actions';
 
 const initialState = {
 
