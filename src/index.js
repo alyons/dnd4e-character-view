@@ -6,9 +6,10 @@ import { createStore } from 'redux';
 import App from './components/App';
 import rootReducer from './reducers';
 
-import testData from './data.json';
-
-const store = createStore(rootReducer, testData, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 render(
     <Provider store={store}>
