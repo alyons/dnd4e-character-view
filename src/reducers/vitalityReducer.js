@@ -32,6 +32,8 @@ const vitality = (state = initialState, action) => {
                 hitPoints: Math.min(state.maxHitPoints, state.hitPoints + toHeal),
                 healingSurges: Math.max(0, state.healingSurges - 1)
             });
+        case VitalityActions.SET_VITALITY:
+            return Object.assign({}, state, action.vitality);
         default:
             return state;
     }

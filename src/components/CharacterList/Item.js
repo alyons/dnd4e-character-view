@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AppActions } from '../../actions';
+import { AppActions, CharacterActions } from '../../actions';
 
 const APP_VIEW = AppActions.APP_VIEW;
 
 const mapDispatchToProps = dispatch => ({
     selectCharacter: character => {
+        dispatch(CharacterActions.loadCharacter());
         dispatch(AppActions.setAppView(APP_VIEW.CHAR_SHEET));
     }
 });
