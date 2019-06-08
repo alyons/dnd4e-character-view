@@ -10,14 +10,16 @@ const mapStateToProps = state => ({
 
 const Inventory = ({ inventory }) => {
     let items = [];
-    for(let i = 0; i < inventory.length; i++) {
-        let item = inventory[i];
-        items.push(
-            <InventoryItem
-                item={item}
-                eventKey={i}
-                key={item.name.replace(/\s/g, '')}/>
-        );
+    if (!!inventory) {
+        for(let i = 0; i < inventory.length; i++) {
+            let item = inventory[i];
+            items.push(
+                <InventoryItem
+                    item={item}
+                    eventKey={i}
+                    key={item.name.replace(/\s/g, '')}/>
+            );
+        }
     }
 
     return (

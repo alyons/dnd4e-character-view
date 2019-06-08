@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-const Item = ({ name, selectCharacter }) => {
+const CharacterItem = ({ name, selectCharacter }) => {
     return (
         <button onClick={() => selectCharacter(name)}>
             {name}
@@ -19,4 +19,4 @@ const Item = ({ name, selectCharacter }) => {
     );
 };
 
-export default connect(null, mapDispatchToProps)(Item);
+export default connect(null, mapDispatchToProps)(CharacterItem);

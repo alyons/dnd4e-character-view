@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { AppActions } from '../../actions';
-import Item from './Item';
+import CharacterItem from './CharacterItem';
 
 const APP_VIEW = AppActions.APP_VIEW;
 
@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => ({
 
 const CharacterList = ({ characterList, selectCharacter }) => {
     const listItems = characterList.map(item => {
-        return <Item key={item} name={item}/>;
+        return <CharacterItem key={item} name={item}/>;
     });
     return (<ul>{listItems}</ul>);
 };

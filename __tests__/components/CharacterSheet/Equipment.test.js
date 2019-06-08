@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 
-import Details from '../Details';
+import Equipment, { } from '../../../src/components/CharacterSheet/Equipment';
 
-describe('Details Component', () => {
+describe('Equipment Component', () => {
     /* let props;
 
     beforeEach(() => {
@@ -13,7 +13,7 @@ describe('Details Component', () => {
     it('should render', () => {
         const div = document.createElement('div');
         render(
-            <Details />,
+            <Equipment />,
             div
         );
         unmountComponentAtNode(div);
