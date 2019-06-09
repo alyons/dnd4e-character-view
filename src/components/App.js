@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import { AppActions } from '../actions';
 import Header from './Header';
-import Main from './Main';
 import SignIn from './SignIn';
+import CharacterSheet from './CharacterSheet';
 import CharacterList from './CharacterList';
 import './App.css';
 
@@ -20,7 +20,7 @@ const App = ({ appView, loadingStatus }) => {
 
     switch(appView) {
         case APP_VIEW.CHAR_SHEET:
-            contentWidget = <Main />;
+            contentWidget = <CharacterSheet />;
             break;
         case APP_VIEW.CHAR_LIST:
             contentWidget = <CharacterList />;
