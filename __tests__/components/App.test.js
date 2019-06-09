@@ -25,15 +25,21 @@ describe('App Component', () => {
     });
 
     it('renders the main page if state dictates so', () => {
-        store = Object.assign({}, store, { 
-            app: {
-                loadingStatus: AppActions.LOADING_STATUS.LOADED
-            }
-        });
+        const appView = AppActions.APP_VIEW.CHAR_LIST;
         const div = document.createElement('div');
         render(
             <Provider store={store}>
-                <App />
+                <App appView={appView} />
+            </Provider>, div);
+        unmountComponentAtNode(div);
+    });
+
+    it('renders the main page if state dictates so', () => {
+        const appView = AppActions.APP_VIEW.CHAR_SHEET;
+        const div = document.createElement('div');
+        render(
+            <Provider store={store}>
+                <App appView={appView} />
             </Provider>, div);
         unmountComponentAtNode(div);
     });
