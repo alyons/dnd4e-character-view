@@ -28,6 +28,8 @@
     "aws-sdk": "^2.471.0",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.5.1",
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.4",
@@ -41,7 +43,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --hot --open --mode development",
+    "start": "webpack-dev-server --env.NODE_ENV=local --hot --open --mode development",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },

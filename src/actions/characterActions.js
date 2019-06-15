@@ -23,7 +23,7 @@ export const loadCharacter = () => {
     return dispatch => {
         dispatch(characterLoadStarted());
 
-        axios.get('https://httpstat.us/200')
+        axios.get('https://httpstat.us/200', { crossDomain: true })
             .then(res => {
                 dispatch(characterLoadSuccess(data));
             }).catch(err => {
