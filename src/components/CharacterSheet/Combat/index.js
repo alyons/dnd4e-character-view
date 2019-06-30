@@ -8,6 +8,7 @@ import PowerList from './PowerList';
 import FeatureTable from './FeatureTable';
 import SkillTable from './SkillTable';
 import QuickStats from './QuickStats';
+import ConditionList from './ConditionList';
 import './Combat.css'
 
 const mapStateToProps = state => ({
@@ -39,24 +40,6 @@ const Combat = ({ details, stats }) => {
     };
     return (
         <Container>
-            {/* <Row>
-                <Col>
-                    <div>
-                        <Health />
-                        <p>{`Temp HP: ${tempHitPoints}`}</p>
-                        <p>{`Health: ${hitPoints}/${maxHitPoints}`}</p>
-                        <button onClick={() => takeDamage(5)}>Take Damage: 5</button>
-                        <button onClick={() => heal(7)}>Heal: 7</button>
-                        <button onClick={() => setTempHP(6)}>Set Temp: 6</button>
-                    </div>
-                </Col>
-                <Col>
-                    <QuickStats />
-                </Col>
-            </Row>
-            <Row>
-                <PowerList />
-            </Row> */}
             <Row>
                 <Col>
                     <Accordion>
@@ -66,7 +49,7 @@ const Combat = ({ details, stats }) => {
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="conditionCard">
                                 <Card.Body>
-                                    This is where conditions will go; if I had them.
+                                    <ConditionList />
                                 </Card.Body>
                             </Accordion.Collapse>
                         </Card>
