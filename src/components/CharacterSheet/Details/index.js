@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Col, Container, Row } from 'react-bootstrap';
 
-class Details extends Component {
-    render() {
-        return (
-            <div>
-                <h2>Terios Crews</h2>
-                <p>Good male Minotaur Runepriest</p>
-                <p>
-                    Age: 25
-                    Height: 7'2"
-                    Weight: 337 lbs.
-                    Size: Medium
-                    Deity: Corellon
-                    Experience: 2250 (3750 to next level)
-                </p>
-            </div>
-        );
-    }
-}
+import FeatList from './FeatList';
 
-export default Details;
+const mapStateToProps = state => ({
+    details: state.character.details
+});
+
+const Details = ({ details }) => {
+    return (
+        <Container>
+            <Row>
+                <Col>
+                    <div>
+                        {details.name}
+                    </div>
+                </Col>
+            </Row>
+            <Row>
+                {/* <Col><FeatList /></Col> */}
+            </Row>
+            <Row>
+                <Col><FeatList /></Col>
+            </Row>
+        </Container>
+    );
+};
+
+export default connect(mapStateToProps)(Details);

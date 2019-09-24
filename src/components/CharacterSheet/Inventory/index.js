@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Container } from 'react-bootstrap';
 
 import InventoryItem from './InventoryItem';
 
@@ -23,10 +23,12 @@ const Inventory = ({ inventory }) => {
     }
 
     return (
-        <Accordion>
-            {items}
-        </Accordion>
-    )
+        <Container>
+            <Accordion>
+                {items}
+            </Accordion>
+        </Container>
+    );
 };
 
 export default connect(mapStateToProps)(Inventory);

@@ -1,38 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AppActions, UserActions } from '../../actions';
+import GoogleLogin from 'react-google-login';
+
+import { logInSuccess, logInFailure } from '../../actions/userActions';
+import { isLocalDev } from '../../util';
 import './SignIn.css'
 
-const APP_VIEW = AppActions.APP_VIEW;
-
-const mapStateToProps = state => ({
-    loadingStatus: state.app.loadingStatus
-});
-
 const mapDispatchToProps = dispatch => ({
-    logIn: data => {
-        dispatch(UserActions.logIn(data));
-        dispatch(AppActions.setAppView(APP_VIEW.CHAR_LIST));
+    onSuccess: user => {
+        dispatch(logInSuccess(user));
+    },
+    onFailure: response => {
+        dispatch(logInFailure(response));
     }
 });
 
-const SignIn = ({ loadingStatus, logIn }) => {
-    let toDisplay = (
-        <button
-            onClick={() => logIn({ userName: 'PyroticBlaziken' })}>
-            Fake Log In
-        </button>
+const SignIn = ({ onSuccess, onFailure }) => {
+    let toRender = (
+        <GoogleLogin
+            clientId="123309033865-7up73rgtad1kgt3vf2qenohltotr0dce.apps.googleusercontent.com"
+            onSuccess={onSuccess}
+            onFailure={onFailure}
+            cookiePolicy={'single_host_origin'}
+        />
     );
 
-    // if (loadingStatus === LOADING_STATUS.LOADING) {
-    //     toDisplay = (<div className="lds-hourglass"></div>);
-    // }
+    if (isLocalDev) {
+        toRender = (
+            <button
+                onClick={() => onSuccess({ userName: 'PyroticBlaziken' })}>
+                Fake Log In
+            </button>
+        );
+    }
 
     return (
         <div className="sign-in">
-            {toDisplay}
+            {toRender}
         </div>
     )
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(null, mapDispatchToProps)(SignIn);

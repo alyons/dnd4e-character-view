@@ -16,7 +16,7 @@ let plugins = [
     new webpack.HotModuleReplacementPlugin()
 ];
 
-module.exports = {
+const config = {
     entry: './src/index.js',
     devServer: {
         contentBase: './dist',
@@ -50,4 +50,10 @@ module.exports = {
     resolve: {
         extensions: ['*', '.js', 'jsx']
     }
+};
+
+module.exports = env => {
+    console.log(env);
+
+    return config;
 };

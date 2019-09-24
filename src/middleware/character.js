@@ -16,14 +16,13 @@ const characterMiddleware = store => next => action => {
     }
 
     const { character } = action;
-
-    if (!character || !character.hitPoints || !character.healingSurges) {
-        return;
-    }
+    if (!character) return;
+    const { stats } = character;
+    if (!stats) return;
 
     let vitality = {
-        maxHitPoints: parseInt(character.hitPoints),
-        maxHealingSurges: parseInt(character.healingSurges)
+        maxHitPoints: parseInt(stats.hitPoints),
+        maxHealingSurges: parseInt(stats.healingSurges)
     };
 
     vitality.hitPoints = vitality.maxHitPoints;
