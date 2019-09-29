@@ -1,4 +1,5 @@
+.dockerignore
 .git
-*Dockerfile*
-*docker-compose*
+docker-compose*.yml
+Dockerfile
 node_modules
