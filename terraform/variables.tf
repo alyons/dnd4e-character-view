@@ -1,6 +1,11 @@
 # variable "aws_access_key" {}
 # variable "aws_secret_key" {}
 # variable "aws_accound_id" {}
+variable "vpc_id" {
+    type        = string
+    description = "VPC in which your cluster is running o"
+    default     = "vpc-0d6167ae978259360"
+}
 variable "aws_region" {
     type        = string
     description = "AWS region e.g. us-east-1 (Please specify a region supported by the Fargate launch type)"
