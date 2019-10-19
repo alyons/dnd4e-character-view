@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+            "ecr:GetAuthorizationToken",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:BatchGetImage",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
+        ],
+        "Resource": "*"
+    }, {
+        "Effect": "Allow",
+        "Action": [
+            "kms:Decrypt",
+            "ssm:GetParameters"
+        ],
+        "Resource": [
+            "arn:aws:kms:us-east-1:387077767757:key/9a3eb4af-dff3-4353-a7ee-ca8a1bd7bb20",
+            "arn:aws:ssm:us-east-1:387077767757:parameter/googleClientId",
+            "arn:aws:ssm:us-east-1:387077767757:parameter/googleClientSecret"
+        ]
+    }]
+}
