@@ -14,7 +14,7 @@ resource "aws_ecs_task_definition" "frontend_task" {
 }
 
 resource "aws_ecs_service" "character_sheet_service" {
-    name = "character-sheet"
+    name = "character-sheet-service"
     task_definition = "${aws_ecs_task_definition.frontend_task.arn}"
     cluster = "${aws_ecs_cluster.ecs_cluster.id}"
     desired_count = 1
