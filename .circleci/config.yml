@@ -68,6 +68,12 @@ jobs:
           aws-access-key-id: "$AWS_ACCESS_KEY_ID"
           aws-region: "$AWS_REGION"
       - run:
+        name: Validate FS State
+        command: |
+          ls -al
+          ls -al ./repo
+          ls -al ./docker-image
+      - run:
           name: Load image
           command: |
             docker load --input ~/docker-image/image.tar
