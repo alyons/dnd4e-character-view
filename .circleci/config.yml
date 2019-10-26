@@ -71,8 +71,8 @@ jobs:
           name: Validate FS State
           command: |
             ls -al
-            ls -al ./repo
-            ls -al ./docker-image
+            ls -al ~/repo
+            ls -al ~/docker-image
       - run:
           name: Load image
           command: |
