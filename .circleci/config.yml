@@ -7,7 +7,9 @@ workflows:
   main-pipeline:
     jobs:
       - aws-ecr/build-and-push-image:
-          repo: 'character-sheet'
+          account-url: '${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com'
+          region: '${AWS_REGION}'
+          repo: '${AWS_RESOURCE_NAME_PREFIX}'
           tag: '${CIRCLE_SHA1}'
       - aws-ecs/deploy-service-update:
           requires:
