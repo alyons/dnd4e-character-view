@@ -7,7 +7,6 @@ workflows:
   main-pipeline:
     jobs:
       - aws-ecr/build-and-push-image:
-          # account-url: '${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com'
           region: AWS_REGION
           repo: '${AWS_RESOURCE_NAME_PREFIX}'
           tag: '${CIRCLE_SHA1}'
@@ -16,5 +15,5 @@ workflows:
             - aws-ecr/build-and-push-image
           family: '${AWS_RESOURCE_NAME_PREFIX}-task'
           cluster-name: '${AWS_RESOURCE_NAME_PREFIX}-cluster'
-          service-name: '{AWS_RESOURCE_NAME_PREFIX}-service'
+          service-name: '${AWS_RESOURCE_NAME_PREFIX}-service'
           container-image-name-updates: 'container=${AWS_RESOURCE_NAME_PREFIX},tag=${CIRCLE_SHA1}'
