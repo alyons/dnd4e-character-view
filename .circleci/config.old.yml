@@ -11,7 +11,6 @@ orbs:
   aws-cli: circleci/aws-cli@0.1.4
   aws-ecs: circleci/aws-ecs@0.0.10
   aws-s3: circleci/aws-s3@1.0.4
-  aws-ecr: circleci/aws-ecr@6.7.0
 
 jobs:
   build:
@@ -99,21 +98,10 @@ workflows:
   version: 2
   main-pipeline:
     jobs:
-      # - build
-      # - deploy:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: master
-      - aws-ecr/build-and-push-image:
-          repo: AWS_RESOURCE_NAME_PREFIX
-          tag: CIRCLE_SHA1
-      - aws-ecs/deploy-service-update:
+      - build
+      - deploy:
           requires:
-            - aws-ecr/build-and-push-image
-          family: '${AWS_RESOURCE_NAME_PREFIX}-service'
-          cluster-name: '${AWS_RESOURCE_NAME_PREFIX}-cluster'
-          container-image-name-updates: 'container=${AWS_RESOURCE_NAME_PREFIX}-service,tag=${CIRCLE_SHA1}'
-        
-
+            - build
+          # filters:
+          #   branches:
+          #     only: master
